@@ -26,7 +26,7 @@
 #logging.basicConfig(level=logging.DEBUG)
 
 import time
-import SI1145 as SI1145
+import SI1145.SI1145 as SI1145
 
 
 # Default constructor will pick a default I2C bus.

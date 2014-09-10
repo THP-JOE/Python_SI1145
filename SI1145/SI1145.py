@@ -197,7 +197,7 @@ class SI1145(object):
                 self._device.write8(SI1145_REG_UCOEFF3, 0x00)
 
                 # Enable UV sensor
-                self.writeParam(SI1145_PARAM_CHLIST, SI1145_PARAM_CHLIST_ENUV | SI1145_PARAM_CHLIST_ENALSIR | SI1145_PARAM_CHLIST_$
+                self.writeParam(SI1145_PARAM_CHLIST, SI1145_PARAM_CHLIST_ENUV | SI1145_PARAM_CHLIST_ENALSIR | SI1145_PARAM_CHLIST_ENALSVIS | SI1145_PARAM_CHLIST_ENPS1)
 
                 # Enable interrupt on every sample
                 self._device.write8(SI1145_REG_INTCFG, SI1145_REG_INTCFG_INTOE)

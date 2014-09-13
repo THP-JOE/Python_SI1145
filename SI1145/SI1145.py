@@ -163,7 +163,7 @@ class SI1145(object):
                 #reset device
                 self._reset()
 
-		se.f._I2C_Change()
+		self._I2C_Change()
 
 		self.device = I2C.Device(address, busnum)
 

@@ -165,7 +165,6 @@ class SI1145(object):
                 # Load calibration values.
                 self._load_calibration()
 
-
         # device reset
         def _reset(self):
                 self._device.write8(SI1145_REG_MEASRATE0, 0)
@@ -262,5 +261,4 @@ class SI1145(object):
         # Returns "Proximity" - assumes an IR LED is attached to LED
         def readProx(self):
                 return self._device.readU16LE(0x26)
-
 

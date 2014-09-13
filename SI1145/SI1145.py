@@ -149,8 +149,7 @@ SI1145_REG_PARAMRD                      = 0x2E
 SI1145_REG_CHIPSTAT                     = 0x30
 
 # I2C Address
-SI1145_DEFAULT_ADDR			= 0X60
-SI1145_ADDR                             = 0x61
+SI1145_ADDR                             = 0x60
 
 class SI1145(object):
         def __init__(self, address=SI1145_ADDR, busnum=I2C.get_default_bus()):
@@ -158,31 +157,13 @@ class SI1145(object):
                 self._logger = logging.getLogger('SI1145')
 
                 # Create I2C device.
-                self._device = I2C.Device(SI1145_DEFAULT_ADDR, busnum)
+                self._device = I2C.Device(address, busnum)
 
                 #reset device
                 self._reset()
 
-		self._I2C_Change()
-
-		self.device = I2C.Device(address, busnum)
-
                 # Load calibration values.
                 self._load_calibration()
-
-	#change I2C address to user defined
-	def _I2C_Change(self):
-		#  write the new address to the PARAM_WR I2C register (0x17)
-  		self._device.write8(0x17, SI1145_ADDR)
-
-		#  write a PARAM_SET command into the COMMAND register (0x18)
-   		self._device.write8(0x18, 0xA0)
-
-		#  now, having done all that, execute a BUSADDR command to use the address
-		#  we've stored in the PRAM
-
-		self._device.write8(0x18, 0x02) #  BUSADDR command
-
 
 
         # device reset

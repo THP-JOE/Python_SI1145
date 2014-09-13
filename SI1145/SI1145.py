@@ -158,7 +158,7 @@ class SI1145(object):
                 self._logger = logging.getLogger('SI1145')
 
                 # Create I2C device.
-                self._device = I2C.Device(SI1145_DEFAULT_ADDRESS, busnum)
+                self._device = I2C.Device(SI1145_DEFAULT_ADDR, busnum)
 
                 #reset device
                 self._reset()

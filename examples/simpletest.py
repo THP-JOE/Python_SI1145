@@ -36,7 +36,11 @@ import SI1145.SI1145 as SI1145
 # on the Pi's revision.
 #
 # For the Beaglebone Black the library will assume bus 1 by default, which is
-# exposed with SCL = P9_19 and SDA = P9_20.
+# exposed with I2C1_SCL = P9_17 and I2C1_SDA = P9_18
+# Header pinout: http://beagleboard.org/static/images/cape-headers-i2c.png
+# Configure the pins for I2C with these pins:
+#   sudo config-pin p9.17 i2c
+#   sudo config-pin p9.18 i2c
 
 sensor = SI1145.SI1145()
 
